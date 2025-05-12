@@ -1,2 +1,1 @@
-# Web3-library
-Everything I learned about Web3
+# Solidity 学习
