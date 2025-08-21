@@ -130,6 +130,16 @@ drk
   ```
 - Once started, follow the prompts to manage your wallet, send/receive assets, or check your balance.
 
+Notice: In the early testnet wallet CLI, there is indeed a “gotcha”:
+
+wallet --initialize has a hardcoded default password check.
+
+However, it neither provides an interactive password input, nor accepts --password or --config.
+
+As a result, it always shows: “Please don't use default wallet password...” and never actually initializes.
+
+👉 In other words, in drk 0.5.0, the wallet functionality is incomplete — successful wallet initialization is not possible.
+
 ---
 
 # Feature 3. Launch darkirc for Anonymous Chat
