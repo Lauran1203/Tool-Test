@@ -130,15 +130,104 @@ drk
   ```
 - Once started, follow the prompts to manage your wallet, send/receive assets, or check your balance.
 
-Notice: In the early testnet wallet CLI, there is indeed a “gotcha”:
+---
 
-wallet --initialize has a hardcoded default password check.
+## Set Up a DarkFi Wallet Password and Generate a Keypair
 
-However, it neither provides an interactive password input, nor accepts --password or --config.
+### 1. Find and Edit the Wallet Config File
 
-As a result, it always shows: “Please don't use default wallet password...” and never actually initializes.
+First, set a secure password for the wallet. The config file is usually at:
 
-👉 In other words, in drk 0.5.0, the wallet functionality is incomplete — successful wallet initialization is not possible.
+```
+~/.config/darkfi/drk_config.toml
+```
+
+To open and edit the file, use this command in the terminal:
+
+```bash
+nano ~/.config/darkfi/drk_config.toml
+```
+
+(On Mac or Linux, nano is a simple text editor. If a permission error appears, try adding `sudo` before the command.)
+
+---
+
+### 2. Set a New Password
+
+Inside the config file, look for a section like this:
+
+```toml
+[network_config."testnet"]
+wallet_path = "~/.local/share/darkfi/drk/testnet/wallet.db"
+wallet_pass = "changeme"
+```
+
+Change `"changeme"` to a custom password (use only English letters/numbers, and keep it between the quotes). For example:
+
+```toml
+wallet_pass = "mySuperSecretPassword123"
+```
+
+**Don’t use the word `changeme`!**
+
+After making changes, save and exit nano:
+- Press `Ctrl + O` (the letter O) to save, then hit Enter.
+- Press `Ctrl + X` to exit.
+
+---
+
+### 3. Initialize the Wallet
+
+Back in the terminal, run:
+
+```bash
+./drk wallet --initialize
+```
+
+This sets up the wallet for the first time. If messages about Merkle trees and contracts appear, the setup worked!
+
+---
+
+### 4. Generate a Keypair (Wallet Address)
+
+Create a wallet address (keypair):
+
+```bash
+./drk wallet --keygen
+```
+
+The terminal should show something like:
+
+```
+Generating a new keypair
+New address:
+CbaqFqGTgn86Zh9AjUeMw3DJyVCshaPSPFtmj6Cyd5yU
+```
+
+Copy and save the new address somewhere safe. This address will be used to receive DRK coins.
+
+---
+
+### 5. Check the Address
+
+To see the default wallet address, run:
+
+```bash
+./drk wallet --address
+```
+
+To set a different address as the default, use:
+
+```bash
+./drk wallet --default-address 1
+```
+
+---
+
+**That’s it!**  
+A new password is set, the wallet is initialized, and the first keypair is generated. Ready to use DarkFi.
+
+<img width="1112" height="162" alt="image" src="https://github.com/user-attachments/assets/ab99a150-8564-4191-90cc-20e216b4198b" />
 
 ---
 
