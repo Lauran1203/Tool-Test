@@ -113,6 +113,51 @@ There is no need to enter the full path or navigate to the folder. As long as `d
 
 # Feature 2: Use Dark Wallet
 
-to be added
+For DarkFi on macOS, you do **not** need to use any cargo commands to run the wallet (`drk`) or the anonymous chat client (`darkirc`). The executables are already included in the main DarkFi project folder. Using `cargo build` or similar commands will **not** produce the required binaries and may cause confusion or errors.
 
+
+Open Terminal and type:
+```sh
+drk
+```
+- If you see “command not found,” it means `drk` is not in `/usr/local/bin`. You can either run it with the full path (e.g., `~/darkfi/drk`) or copy it to `/usr/local/bin`:
+  ```sh
+  sudo cp /path/to/drk /usr/local/bin/
+  ```
+- If you get a permission error, make it executable:
+  ```sh
+  chmod +x /usr/local/bin/drk
+  ```
+- Once started, follow the prompts to manage your wallet, send/receive assets, or check your balance.
+
+---
+
+# Feature 3. Launch darkirc for Anonymous Chat
+
+In Terminal, type:
+```sh
+darkirc
+```
+- If you see “command not found,” copy the file to `/usr/local/bin` or use the full path.
+- If you get a permission error:
+  ```sh
+  chmod +x /usr/local/bin/darkirc
+  ```
+- Once launched, follow the on-screen instructions to join channels or configure anonymous chat.
+
+---
+
+### Important Note About Cargo
+
+- Do **not** use `cargo build` or any cargo commands for these tools.  
+- The project’s structure is different from typical Rust apps, and cargo will **not** produce the `drk` or `darkirc` binaries in `target/release/`.
+- Just use the provided executables in your DarkFi folder. This will save you time and avoid unnecessary frustration.
+
+---
+
+### Summary
+
+- As long as `drk` and `darkirc` are in `/usr/local/bin`, you can start them from any directory.
+- If you encounter any errors, copy the terminal output and ask for help—a step-by-step solution can be provided.
+- Skip all cargo commands for the wallet and chat client on macOS—just use the pre-built files!
 
