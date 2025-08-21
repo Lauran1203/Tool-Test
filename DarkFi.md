@@ -65,6 +65,9 @@ Start the main daemon:
 ./target/release/darkfid
 ```
 
+Then it's all set!
+
+<img width="1136" height="742" alt="image" src="https://github.com/user-attachments/assets/d1b362d6-982c-4953-b3a8-5fda6027be0f" />
 
 
 ### 6.Closing the Terminal Will Stop the Node Process
